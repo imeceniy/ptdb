@@ -55,6 +55,8 @@
             this.txtSize = new System.Windows.Forms.TextBox();
             this.errorTxt = new System.Windows.Forms.TextBox();
             this.errorLbl = new System.Windows.Forms.Label();
+            this.lblDateVP = new System.Windows.Forms.Label();
+            this.dtpVP = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDate)).BeginInit();
@@ -107,7 +109,7 @@
             this.ppcu,
             this.rk,
             this.dck});
-            this.dgvMain.Location = new System.Drawing.Point(36, 426);
+            this.dgvMain.Location = new System.Drawing.Point(36, 544);
             this.dgvMain.Margin = new System.Windows.Forms.Padding(6);
             this.dgvMain.Name = "dgvMain";
             this.dgvMain.Size = new System.Drawing.Size(304, 245);
@@ -166,7 +168,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(36, 276);
+            this.btnCreate.Location = new System.Drawing.Point(36, 362);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(221, 105);
             this.btnCreate.TabIndex = 2;
@@ -177,7 +179,7 @@
             // button2
             // 
             this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(349, 544);
+            this.button2.Location = new System.Drawing.Point(349, 633);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(181, 127);
             this.button2.TabIndex = 3;
@@ -232,7 +234,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tssProgressBar,
             this.tsslProgress});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 413);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 533);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(968, 38);
             this.statusStrip1.TabIndex = 7;
@@ -286,11 +288,32 @@
             this.errorLbl.TabIndex = 11;
             this.errorLbl.Text = "Изделия с пороговыми значениями";
             // 
+            // lblDateVP
+            // 
+            this.lblDateVP.AutoSize = true;
+            this.lblDateVP.Location = new System.Drawing.Point(31, 240);
+            this.lblDateVP.Name = "lblDateVP";
+            this.lblDateVP.Size = new System.Drawing.Size(238, 25);
+            this.lblDateVP.TabIndex = 12;
+            this.lblDateVP.Text = "Введите дату приемки";
+            // 
+            // dtpVP
+            // 
+            this.dtpVP.CustomFormat = "dd.MM.yyyy";
+            this.dtpVP.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpVP.Location = new System.Drawing.Point(36, 278);
+            this.dtpVP.Name = "dtpVP";
+            this.dtpVP.Size = new System.Drawing.Size(282, 31);
+            this.dtpVP.TabIndex = 13;
+            this.dtpVP.ValueChanged += new System.EventHandler(this.dtpVP_ValueChanged);
+            // 
             // frmData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(968, 451);
+            this.ClientSize = new System.Drawing.Size(968, 571);
+            this.Controls.Add(this.dtpVP);
+            this.Controls.Add(this.lblDateVP);
             this.Controls.Add(this.errorLbl);
             this.Controls.Add(this.errorTxt);
             this.Controls.Add(this.txtSize);
@@ -348,5 +371,7 @@
         private System.Windows.Forms.TextBox txtSize;
         private System.Windows.Forms.TextBox errorTxt;
         private System.Windows.Forms.Label errorLbl;
+        private System.Windows.Forms.Label lblDateVP;
+        private System.Windows.Forms.DateTimePicker dtpVP;
     }
 }

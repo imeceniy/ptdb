@@ -103,7 +103,7 @@ namespace ptdb
             Object docxFileName = openFileDialog.FileName;//имя файла
             Object missing = Type.Missing;
             //открыли дркумент
-
+            
             wordApp.Documents.Open(ref docxFileName, ref missing,
                 ref missing, ref missing, ref missing, ref missing,
                 ref missing, ref missing, ref missing, ref missing,
@@ -172,7 +172,7 @@ namespace ptdb
             int n = 1;
             string letter = "";
             //цикл вывода параметров в паспорта для ПТ1-4
-            #region
+            #region 4
             if (type == "4")
             {
                 tsslProgress.Text = "Обработка данных";
@@ -196,6 +196,13 @@ namespace ptdb
                     findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                    findObject.Text = $"$dateVP$";
+                    findObject.Replacement.ClearFormatting();
+                    findObject.Replacement.Text = $"{dtpVP.Text}";
+                    findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                        ref missing, ref missing, ref missing, ref missing, ref missing,
+                        ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+
 
                     foreach (var section in thing.Value)
                     {
@@ -302,6 +309,12 @@ namespace ptdb
                     findObject.Text = $"$date$";
                     findObject.Replacement.ClearFormatting();
                     findObject.Replacement.Text = $"{nudDate.Value}";
+                    findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                        ref missing, ref missing, ref missing, ref missing, ref missing,
+                        ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                    findObject.Text = $"$dateVP$";
+                    findObject.Replacement.ClearFormatting();
+                    findObject.Replacement.Text = $"{dtpVP.Text}";
                     findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref replaceAll, ref missing, ref missing, ref missing, ref missing);
@@ -474,6 +487,13 @@ namespace ptdb
                         findObject1.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                             ref missing, ref missing, ref missing, ref missing, ref missing,
                             ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                        findObject.Text = $"$dateVP$";
+                        findObject.Replacement.ClearFormatting();
+                        findObject.Replacement.Text = $"{dtpVP.Text}";
+                        findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                            ref missing, ref missing, ref missing, ref missing, ref missing,
+                            ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+
                     }
                     if (n == 2)
                     {
@@ -491,6 +511,13 @@ namespace ptdb
                         findObject1.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                             ref missing, ref missing, ref missing, ref missing, ref missing,
                             ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                        findObject.Text = $"$dateVP$";
+                        findObject.Replacement.ClearFormatting();
+                        findObject.Replacement.Text = $"{dtpVP.Text}";
+                        findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                            ref missing, ref missing, ref missing, ref missing, ref missing,
+                            ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+
                     }
                     if (n == 1)
                     {
@@ -712,6 +739,7 @@ namespace ptdb
                         if (i < countD)
                         {
                             wordApp.Selection.EndKey(ref objUnit, ref missing);
+                            //wordApp.Selection.TypeBackspace();
                             wordApp.ActiveWindow.Selection.PasteAndFormat(Word.WdRecoveryType.wdPasteDefault);
                             wordApp.Selection.HomeKey(ref objUnit, ref missing);
                             n = 1;
@@ -748,6 +776,13 @@ namespace ptdb
                     findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                    findObject.Text = $"$dateVP$";
+                    findObject.Replacement.ClearFormatting();
+                    findObject.Replacement.Text = $"{dtpVP.Text}";
+                    findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                        ref missing, ref missing, ref missing, ref missing, ref missing,
+                        ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+
                     if (type == "6A")
                     {
                         letter = "А";
@@ -900,13 +935,19 @@ namespace ptdb
                     findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref replaceAll, ref missing, ref missing, ref missing, ref missing);
-
                     findObject.Text = $"$size$";
                     findObject.Replacement.ClearFormatting();
                     findObject.Replacement.Text = $"{txtSize.Text}";
                     findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                    findObject.Text = $"$dateVP$";
+                    findObject.Replacement.ClearFormatting();
+                    findObject.Replacement.Text = $"{dtpVP.Text}";
+                    findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                        ref missing, ref missing, ref missing, ref missing, ref missing,
+                        ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+
                     foreach (var section in thing.Value)
                     {
                         foreach (var data in section.Value)
@@ -1105,6 +1146,11 @@ namespace ptdb
             wordApp.ActiveDocument.Close();
 
 
+        }
+
+        private void dtpVP_ValueChanged(object sender, EventArgs e)
+        {
+            //lblDateVP.Text = dtpVP.Text;
         }
     }
 }

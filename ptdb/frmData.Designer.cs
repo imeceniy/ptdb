@@ -303,8 +303,9 @@
             this.dtpVP.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpVP.Location = new System.Drawing.Point(36, 278);
             this.dtpVP.Name = "dtpVP";
-            this.dtpVP.Size = new System.Drawing.Size(282, 31);
+            this.dtpVP.Size = new System.Drawing.Size(221, 31);
             this.dtpVP.TabIndex = 13;
+            this.dtpVP.Value = new System.DateTime(2019, 5, 7, 0, 0, 0, 0);
             this.dtpVP.ValueChanged += new System.EventHandler(this.dtpVP_ValueChanged);
             // 
             // frmData

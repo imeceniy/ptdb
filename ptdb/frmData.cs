@@ -94,10 +94,6 @@ namespace ptdb
                 Title = "Выберите файл паспорта"
             };
             tssProgressBar.Value += 5;
-            //if (openFileDialog.ShowDialog() == DialogResult.Cancel)
-            //{
-            //    return;
-            //}
             openFileDialog.ShowDialog();
             Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();//процесс ворда
             Object docxFileName = openFileDialog.FileName;//имя файла
@@ -776,9 +772,11 @@ namespace ptdb
                     findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                    string dateVP = "";
+                    dateVP = dtpVP.Text.ToString();
                     findObject.Text = $"$dateVP$";
                     findObject.Replacement.ClearFormatting();
-                    findObject.Replacement.Text = $"{dtpVP.Text}";
+                    findObject.Replacement.Text = $"{dateVP}";
                     findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref replaceAll, ref missing, ref missing, ref missing, ref missing);
@@ -1110,7 +1108,7 @@ namespace ptdb
             Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();//процесс ворда
             Object docxFileName = openFileDialog.FileName;//имя файла
             Object missing = Type.Missing;
-            //открыли дркумент
+            //открыли документ
 
             var document = wordApp.Documents.Open(ref docxFileName, ref missing,
                 ref missing, ref missing, ref missing, ref missing,

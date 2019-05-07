@@ -192,13 +192,14 @@ namespace ptdb
                     findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                    string dateVP = "";
+                    dateVP = dtpVP.Text.ToString();
                     findObject.Text = $"$dateVP$";
                     findObject.Replacement.ClearFormatting();
-                    findObject.Replacement.Text = $"{dtpVP.Text}";
+                    findObject.Replacement.Text = $"{dateVP}";
                     findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref replaceAll, ref missing, ref missing, ref missing, ref missing);
-
 
                     foreach (var section in thing.Value)
                     {
@@ -308,13 +309,14 @@ namespace ptdb
                     findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                    string dateVP = "";
+                    dateVP = dtpVP.Text.ToString();
                     findObject.Text = $"$dateVP$";
                     findObject.Replacement.ClearFormatting();
-                    findObject.Replacement.Text = $"{dtpVP.Text}";
+                    findObject.Replacement.Text = $"{dateVP}";
                     findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref replaceAll, ref missing, ref missing, ref missing, ref missing);
-
                     foreach (var section in thing.Value)
                     {
                         foreach (var data in section.Value)
@@ -483,9 +485,11 @@ namespace ptdb
                         findObject1.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                             ref missing, ref missing, ref missing, ref missing, ref missing,
                             ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                        string dateVP = "";
+                        dateVP = dtpVP.Text.ToString();
                         findObject.Text = $"$dateVP$";
                         findObject.Replacement.ClearFormatting();
-                        findObject.Replacement.Text = $"{dtpVP.Text}";
+                        findObject.Replacement.Text = $"{dateVP}";
                         findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                             ref missing, ref missing, ref missing, ref missing, ref missing,
                             ref replaceAll, ref missing, ref missing, ref missing, ref missing);
@@ -939,9 +943,11 @@ namespace ptdb
                     findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                    string dateVP = "";
+                    dateVP = dtpVP.Text.ToString();
                     findObject.Text = $"$dateVP$";
                     findObject.Replacement.ClearFormatting();
-                    findObject.Replacement.Text = $"{dtpVP.Text}";
+                    findObject.Replacement.Text = $"{dateVP}";
                     findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref missing, ref missing, ref missing, ref missing, ref missing,
                         ref replaceAll, ref missing, ref missing, ref missing, ref missing);
